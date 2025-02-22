@@ -1,0 +1,9 @@
+/* General Styling for the Streamlit App */
+
+.block-container {
+    padding-top: 4rem;
+    padding-bottom: 0rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
