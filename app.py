@@ -17,7 +17,7 @@ import base64
 
 cohere_key=st.secrets["cohere_api_key"]
 qdrant_api = st.secrets["qdrant_api_key"]
-openai_key=st.secrets["openai_api_key"]
+# openai_key=st.secrets["openai_api_key"]
 
 # Set the page configuration
 st.set_page_config(page_title="talk2log :: turning data into dialogue", layout = "wide", page_icon="assets/images/favicon.ico")
@@ -143,24 +143,24 @@ During the early morning shift on October 15, 2024, the float glass production l
     
     return messages
 
-@st.cache_data(show_spinner=False)
-def get_openai_response(model, messages, temperature=0.2, top_p=0.1):
+# @st.cache_data(show_spinner=False)
+# def get_openai_response(model, messages, temperature=0.2, top_p=0.1):
 
-    # Example API call (chat completion with GPT-4 model)
-    client = OpenAI(
-        # This is the default and can be omitted
-        api_key=openai_key,
-    )
+#     # Example API call (chat completion with GPT-4 model)
+#     client = OpenAI(
+#         # This is the default and can be omitted
+#         api_key=openai_key,
+#     )
 
-    chat_completion = client.chat.completions.create(
-        messages=messages,
-        model=model,
-        temperature=temperature,
-        top_p=top_p,
-    )
+#     chat_completion = client.chat.completions.create(
+#         messages=messages,
+#         model=model,
+#         temperature=temperature,
+#         top_p=top_p,
+#     )
 
-    # Print the response
-    return chat_completion.choices[0].message.content, chat_completion.usage.completion_tokens, chat_completion.usage.prompt_tokens
+#     # Print the response
+#     return chat_completion.choices[0].message.content, chat_completion.usage.completion_tokens, chat_completion.usage.prompt_tokens
 
 @st.cache_data(show_spinner=False)
 def get_cohere_response(messages, llm_model, temperature=0.3, top_p=0.3):
